@@ -1,6 +1,8 @@
 import styled, { createGlobalStyle } from "styled-components";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { Header } from "./layouts";
+
+// import layouts
+import { Header, Footer } from "./layouts";
 
 // import pages
 import { About, Home, Contact, Design, Location } from "./pages";
@@ -86,6 +88,7 @@ function App() {
           <Route path="/design" element={<Design />}></Route>
           <Route path="/location" element={<Location />}></Route>
         </Routes>
+        <Footer />
       </BrowserRouter>
     </Main>
   );

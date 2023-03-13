@@ -38,19 +38,19 @@ const InfosContainer = styled.div`
   max-width: 1111px;
   width: 100%;
   margin: auto;
-  padding: 0px 24px 121px 24px;
+  padding: 0px 24px 311px 24px;
   display: flex;
   flex-direction: column;
   row-gap: 80px;
 
   @media screen and (min-width: 768px) {
     row-gap: 32px;
+    padding: 0px 39px 331px 39px;
   }
 
   @media screen and (min-width: 1111px) {
     flex-direction: row;
-    padding: 0px;
-    padding-bottom: 160px;
+    padding: 0px 0px 380px 0px;
     column-gap: 30px;
     row-gap: 0px;
   }
