@@ -131,7 +131,7 @@ const HeaderComponent = styled.header`
   }
 
   @media screen and (min-width: 1111px) {
-    max-width: 1411px;
+    max-width: 1111px;
     width: 100%;
     margin: auto;
   }
@@ -200,7 +200,7 @@ const Backdrop = styled.div`
   width: 100vw;
   height: calc(100vh - 96px);
   position: absolute;
-  z-index: 999;
+  z-index: 9999;
   top: 96px;
   left: 0px;
   background-color: rgba(0, 0, 0, 0.5);

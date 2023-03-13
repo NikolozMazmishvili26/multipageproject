@@ -1,7 +1,14 @@
 import styled from "styled-components";
 
+// import components
+import ProjectCard from "./ProjectCard";
+
 // import assets
 import {
+  WebDesignMobile,
+  WebDesignDesktop,
+  WebDesignTablet,
+  //
   AppDesignMobile,
   AppDesignTablet,
   AppDesignDesktop,
@@ -9,17 +16,8 @@ import {
   GraphicDesignMobile,
   GraphicDesignTablet,
   GraphicDesignDesktop,
-  //
-  WebDesignMobile,
-  WebDesignTablet,
-  WebDesignDesktop,
-  Arrow,
 } from "../../assets/index";
 
-// import component
-import Project from "./Project";
-
-// images objects
 const webDesignImages = {
   mobile: WebDesignMobile,
   tablet: WebDesignTablet,
@@ -42,23 +40,12 @@ function Projects() {
   return (
     <ProjectsContainer>
       <LeftSide>
-        <Project
-          projectTitle="web design"
-          projectImages={webDesignImages}
-          height="640px"
-        />
+        <ProjectCard images={webDesignImages} title="web design" />
       </LeftSide>
+
       <RightSide>
-        <Project
-          projectTitle="app design"
-          projectImages={appDesignImages}
-          height="308px"
-        />
-        <Project
-          projectTitle="graphic design"
-          projectImages={graphicDesignImages}
-          height="308px"
-        />
+        <ProjectCard images={appDesignImages} title="app design" />
+        <ProjectCard images={graphicDesignImages} title="graphic design" />
       </RightSide>
     </ProjectsContainer>
   );
@@ -67,33 +54,36 @@ function Projects() {
 export default Projects;
 
 const ProjectsContainer = styled.div`
-  max-width: 1411px;
+  max-width: 1111px;
+  width: 100%;
   margin: auto;
-  padding: 120px 24px 0px 24px;
+  padding: 120px 24px;
   display: flex;
   flex-direction: column;
   row-gap: 24px;
-  background-color: gainsboro;
-
-  @media screen and (min-width: 768px) {
-    padding: 120px 40px 0px 40px;
-  }
 
   @media screen and (min-width: 1111px) {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    flex-direction: row;
+    min-height: 640px;
+    padding: 160px 0px;
     column-gap: 30px;
-  }
-
-  @media screen and (min-width: 1460px) {
-    padding: 106px 0px 160px 0px;
   }
 `;
 
-const LeftSide = styled.div``;
+const LeftSide = styled.div`
+  @media screen and (min-width: 1111px) {
+    flex: 1;
+    height: 640px;
+  }
+`;
 
 const RightSide = styled.div`
-  display: flex;
-  flex-direction: column;
+  display: grid;
   row-gap: 24px;
+  @media screen and (min-width: 1111px) {
+    flex: 1;
+    display: grid;
+    grid-template-rows: 308px 308px;
+    row-gap: 24px;
+  }
 `;

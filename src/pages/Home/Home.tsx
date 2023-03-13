@@ -1,15 +1,16 @@
 import styled from "styled-components";
 
 // import components
-import { Banner, Projects } from "../../components/index";
+import Banner from "../../components/home/Banner";
+import Infos from "../../components/home/Infos";
+import Projects from "../../components/home/Projects";
 
 function Home() {
   return (
     <HomeContainer>
       <Banner />
-      {/*  */}
       <Projects />
-      {/*  */}
+      <Infos />
     </HomeContainer>
   );
 }

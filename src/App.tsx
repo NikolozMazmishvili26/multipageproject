@@ -96,4 +96,5 @@ export default App;
 const Main = styled.main`
   max-width: 1920px;
   width: 100%;
+  margin: auto;
 `;

@@ -1,41 +1,39 @@
 import styled from "styled-components";
 
+interface ProjectCardProps {
+  images: {
+    mobile: string;
+    tablet: string;
+    desktop: string;
+  };
+  title: string;
+}
+
 // import assets
 import { Arrow } from "../../assets/index";
 
-interface ProjectProps {
-  projectTitle: string;
-  projectImages: {
-    mobile: string;
-    tablet: string;
-    desktop: string;
-  };
-  height: string;
-}
-
-function Project({ projectTitle, projectImages, height }: ProjectProps) {
+function ProjectCard({ images, title }: ProjectCardProps) {
   return (
-    <ProjectCardWrapper>
-      <ProjectCard projectImages={projectImages} height={height}>
-        <ProjectTitle>{projectTitle}</ProjectTitle>
+    <ProjectContainer>
+      <Project images={images}>
+        <ProjectTitle>{title}</ProjectTitle>
         <ViewProjectsBox>
-          <ViewProjects>view projects</ViewProjects>
+          <ViewProjectsTitle>view projects</ViewProjectsTitle>
           <ArrowImage src={Arrow} alt="arrow" />
         </ViewProjectsBox>
-      </ProjectCard>
-    </ProjectCardWrapper>
+      </Project>
+    </ProjectContainer>
   );
 }
 
-export default Project;
+export default ProjectCard;
 
-const ProjectCard = styled.div<{
-  projectImages: {
+const Project = styled.div<{
+  images: {
     mobile: string;
     tablet: string;
     desktop: string;
   };
-  height: string;
 }>`
   width: 100%;
   height: 250px;
@@ -45,7 +43,6 @@ const ProjectCard = styled.div<{
   flex-direction: column;
   align-items: center;
   justify-content: center;
-
   &::before {
     content: "";
     position: absolute;
@@ -53,7 +50,7 @@ const ProjectCard = styled.div<{
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url(${(props) => props.projectImages.mobile});
+    background-image: url(${(props) => props.images.mobile});
     background-size: cover;
     background-position: center;
     opacity: 0.5;
@@ -63,30 +60,31 @@ const ProjectCard = styled.div<{
   @media screen and (min-width: 768px) {
     height: 200px;
     &::before {
-      background-image: url(${(props) => props.projectImages.tablet});
+      background-image: url(${(props) => props.images.tablet});
     }
+  }
 
-    @media screen and (min-width: 1111px) {
-      height: ${(props) => props.height};
-      &::before {
-        background-image: url(${(props) => props.projectImages.desktop});
-      }
+  @media screen and (min-width: 1111px) {
+    height: 100%;
+    &::before {
+      background-image: url(${(props) => props.images.desktop});
     }
   }
 `;
 
-const ProjectCardWrapper = styled.div`
+const ProjectContainer = styled.div`
   width: 100%;
-  background: #000000;
-  mix-blend-mode: normal;
+  height: 100%;
   border-radius: 15px;
   overflow: hidden;
+  background: #000000;
+  mix-blend-mode: normal;
   cursor: pointer;
+  transition-duration: 0.2s;
 
   &:hover {
     background: var(--peach);
-    mix-blend-mode: normal;
-    ${ProjectCard} {
+    ${Project} {
       &::before {
         opacity: 0.2;
       }
@@ -95,9 +93,6 @@ const ProjectCardWrapper = styled.div`
 `;
 
 const ProjectTitle = styled.h1`
-  display: flex;
-  align-items: center;
-  justify-content: center;
   font-style: normal;
   font-weight: 500;
   font-size: 28px;
@@ -105,9 +100,10 @@ const ProjectTitle = styled.h1`
   text-align: center;
   letter-spacing: 1.4px;
   color: var(--white);
+  z-index: 999;
   text-transform: uppercase;
 
-  @media screen and (min-width: 1111px) {
+  @media screen and (min-width: 768px) {
     font-size: 40px;
     line-height: 48px;
     letter-spacing: 2px;
@@ -116,12 +112,14 @@ const ProjectTitle = styled.h1`
 
 const ViewProjectsBox = styled.div`
   display: flex;
-  align-items: center;
   column-gap: 16px;
   margin-top: 12px;
+  @media screen and (min-width: 768px) {
+    margin-top: 24px;
+  }
 `;
 
-const ViewProjects = styled.p`
+const ViewProjectsTitle = styled.p`
   font-style: normal;
   font-weight: 500;
   font-size: 15px;

@@ -5,3 +5,5 @@ export { default as Friendly } from "./illustration-friendly.svg";
 export { default as AppDesignDesktop } from "./image-app-design.jpg";
 export { default as GraphicDesignDesktop } from "./image-graphic-design.jpg";
 export { default as WebDesignDesktop } from "./image-web-design-large.jpg";
+export { default as HalfPhone } from "./Phone.svg";
+export { default as FullPhone } from "./FullPhone.svg";

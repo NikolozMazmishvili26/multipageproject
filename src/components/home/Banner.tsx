@@ -1,12 +1,13 @@
 import styled from "styled-components";
 
 // import assets
-import { Phone } from "../../assets/index";
+import { HalfPhone, FullPhone } from "../../assets/index";
 
 function Banner() {
   return (
     <BannerContainer>
-      <BannerDescribeContainer>
+      {/*  */}
+      <BannerDescribeBox>
         <BannerTitle>
           Award-winning custom designs and digital branding solutions
         </BannerTitle>
@@ -16,10 +17,16 @@ function Banner() {
           Find out more about our services.
         </BannerDescription>
         <Button>learn more</Button>
-      </BannerDescribeContainer>
+      </BannerDescribeBox>
+      {/*  */}
 
       <Circle />
-      <MobileImage src={Phone} alt="phoneImage" />
+
+      {/*  */}
+      <PhoneImageBox>
+        <HalfPhoneImage src={HalfPhone} alt="phone" />
+        <FullPhoneImage src={FullPhone} alt="phone" />
+      </PhoneImageBox>
     </BannerContainer>
   );
 }
@@ -28,54 +35,60 @@ export default Banner;
 
 const BannerContainer = styled.div`
   position: relative;
+  width: 100%;
   background-color: var(--peach);
-  color: var(--white);
   padding: 80px 24px 451px 24px;
-  overflow: hidden;
-  max-width: 1411px;
+  max-width: 11111px;
   width: 100%;
   margin: auto;
-  @media screen and (min-width: 1411px) {
+  overflow: hidden;
+
+  @media screen and (min-width: 768px) {
+    padding: 60px 58px 457px 58px;
+  }
+
+  @media screen and (min-width: 1111px) {
+    max-width: 1111px;
     border-radius: 15px;
+    padding: 0px;
     display: flex;
-    padding: 145px 24px 145px 95px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 145px 105px 145px 95px;
   }
 `;
 
-const BannerDescribeContainer = styled.div`
-  max-width: 850px;
-  width: 100%;
-  margin: auto;
-  @media screen and (min-width: 1411px) {
-    max-width: 650px;
-    margin: 0;
-  }
-`;
+// banner describe box styles
+
+const BannerDescribeBox = styled.div``;
 
 const BannerTitle = styled.h1`
+  position: relative;
   font-style: normal;
   font-weight: 500;
   font-size: 32px;
   line-height: 36px;
   text-align: center;
   color: var(--white);
-  position: relative;
-  z-index: 2;
+  min-height: 118px;
+  z-index: 999;
 
   @media screen and (min-width: 768px) {
     font-size: 48px;
     line-height: 48px;
+    max-width: 573px;
+    margin: auto;
+    min-height: 165px;
   }
 
-  @media screen and (min-width: 1411px) {
+  @media screen and (min-width: 1111px) {
+    max-width: 540px;
     text-align: start;
-  }
-  @media screen and (min-width: 1411px) {
-    min-height: 165px;
   }
 `;
 
 const BannerDescription = styled.p`
+  position: relative;
   font-style: normal;
   font-weight: 400;
   font-size: 15px;
@@ -83,26 +96,34 @@ const BannerDescription = styled.p`
   text-align: center;
   color: var(--white);
   margin-top: 14px;
-  position: relative;
-  z-index: 2;
+  margin-bottom: 42px;
+  z-index: 999;
+
   @media screen and (min-width: 768px) {
     font-size: 16px;
     line-height: 26px;
+    max-width: 445px;
+    margin: 8px auto;
+    margin-bottom: 19px;
   }
-  @media screen and (min-width: 1411px) {
+  @media screen and (min-width: 1111px) {
     text-align: start;
-    margin-top: 11px;
-    min-height: 76px;
+    margin: 11px 0;
+    margin-bottom: 40px;
   }
 `;
 
 const Button = styled.button`
+  position: relative;
   display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 152px;
+  height: 56px;
+  border-radius: 8px;
+  border: none;
   margin: auto;
   font-family: "Jost";
-  margin-top: 24px;
-  background-color: var(--white);
-  border-radius: 8px;
   font-style: normal;
   font-weight: 500;
   font-size: 15px;
@@ -110,28 +131,26 @@ const Button = styled.button`
   letter-spacing: 1px;
   text-transform: uppercase;
   color: var(--dark-grey);
-  padding: 18px 24px;
-  border: none;
   cursor: pointer;
-  position: relative;
-  z-index: 2;
   transition-duration: 0.2s;
+  z-index: 999;
 
   &:hover {
     background-color: var(--light-peach);
     color: var(--white);
   }
 
-  @media screen and (min-width: 1411px) {
+  @media screen and (min-width: 1111px) {
     margin: 0;
-    margin-top: 40px;
   }
 `;
+
+// circle styles
 
 const Circle = styled.div`
   position: absolute;
   top: 102px;
-  left: 0px;
+  left: 0;
   width: 640px;
   height: 640px;
   border-radius: 50%;
@@ -140,27 +159,40 @@ const Circle = styled.div`
     rgba(93, 2, 2, 0.0001) 0%,
     rgba(93, 2, 2, 0.497569) 100%
   );
-  transform: matrix(0, -1, -1, 0, 0, 0);
+  mix-blend-mode: normal;
   opacity: 0.31;
+  transform: matrix(0, -1, -1, 0, 0, 0);
 
-  @media screen and (min-width: 650px) {
+  @media screen and (min-width: 640px) {
     left: auto;
-    right: 0px;
+    right: 0;
   }
-  @media screen and (min-width: 1411px) {
+
+  @media screen and (min-width: 1111px) {
     top: 0;
   }
 `;
 
-const MobileImage = styled.img`
+// phone image box styles
+
+const PhoneImageBox = styled.div``;
+
+const HalfPhoneImage = styled.img`
   position: absolute;
+  bottom: -2.5px;
   left: 50%;
   transform: translate(-50%);
-  bottom: -380px;
-  @media screen and (min-width: 1411px) {
-    left: auto;
-    transform: translate(0);
-    right: -86px;
-    bottom: -240px;
+  @media screen and (min-width: 1111px) {
+    display: none;
+  }
+`;
+
+const FullPhoneImage = styled.img`
+  display: none;
+  @media screen and (min-width: 1111px) {
+    display: block;
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
   }
 `;
