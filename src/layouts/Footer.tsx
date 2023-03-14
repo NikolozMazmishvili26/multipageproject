@@ -1,8 +1,7 @@
 import styled from "styled-components";
 
 // import components
-import FooterContent from "../components/footer/FooterContent";
-import FooterCard from "../components/footer/FooterCard";
+import { FooterCard, FooterContent } from "../components/footer/index";
 
 function Footer() {
   return (

@@ -61,6 +61,10 @@ const GlobalStyles = createGlobalStyle`
       border-spacing: 0;
     }
 
+    a{
+      text-decoration: none;
+    }
+
 
     /* global color variables */
 
@@ -70,7 +74,8 @@ const GlobalStyles = createGlobalStyle`
       --black : #1D1C1E;
       --white: #FFFFFF;
       --dark-grey : #333136;
-      --light-grey :rgba(241, 243, 245, 0.857569)
+      --light-grey :rgba(241, 243, 245, 0.857569);
+      --design-card-color : #FDF3F0;
     }
 
 `;
@@ -85,7 +90,7 @@ function App() {
           <Route path="/" element={<Home />}></Route>
           <Route path="about" element={<About />}></Route>
           <Route path="/contact" element={<Contact />}></Route>
-          <Route path="/design" element={<Design />}></Route>
+          <Route path="/design/:category" element={<Design />}></Route>
           <Route path="/location" element={<Location />}></Route>
         </Routes>
         <Footer />

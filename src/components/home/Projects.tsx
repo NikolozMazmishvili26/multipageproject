@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 // import components
-import ProjectCard from "./ProjectCard";
+import ProjectCard from "../shared/ProjectCard";
 
 // import assets
 import {
@@ -17,6 +17,7 @@ import {
   GraphicDesignTablet,
   GraphicDesignDesktop,
 } from "../../assets/index";
+import { Link } from "react-router-dom";
 
 const webDesignImages = {
   mobile: WebDesignMobile,
@@ -40,12 +41,18 @@ function Projects() {
   return (
     <ProjectsContainer>
       <LeftSide>
-        <ProjectCard images={webDesignImages} title="web design" />
+        <Link to="design/web">
+          <ProjectCard images={webDesignImages} title="web design" />
+        </Link>
       </LeftSide>
 
       <RightSide>
-        <ProjectCard images={appDesignImages} title="app design" />
-        <ProjectCard images={graphicDesignImages} title="graphic design" />
+        <Link to="design/app">
+          <ProjectCard images={appDesignImages} title="app design" />
+        </Link>
+        <Link to="design/graphic">
+          <ProjectCard images={graphicDesignImages} title="graphic design" />
+        </Link>
       </RightSide>
     </ProjectsContainer>
   );
