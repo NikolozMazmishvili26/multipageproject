@@ -2,15 +2,21 @@ import styled from "styled-components";
 
 interface ButtonProps {
   buttonValue: string;
+  bgColor?: string;
+  margin?: string;
 }
 
-function Button({ buttonValue }: ButtonProps) {
-  return <MainButton>{buttonValue}</MainButton>;
+function Button({ buttonValue, bgColor = "white", margin = "0" }: ButtonProps) {
+  return (
+    <MainButton bgColor={bgColor} margin={margin}>
+      {buttonValue}
+    </MainButton>
+  );
 }
 
 export default Button;
 
-const MainButton = styled.button`
+const MainButton = styled.button<{ bgColor: string; margin: string }>`
   position: relative;
   display: flex;
   align-items: center;
@@ -27,10 +33,12 @@ const MainButton = styled.button`
   line-height: 22px;
   letter-spacing: 1px;
   text-transform: uppercase;
-  color: var(--dark-grey);
   cursor: pointer;
   transition-duration: 0.2s;
   z-index: 999;
+  background-color: ${(props) => props.bgColor};
+  color: ${(props) =>
+    props.bgColor !== "white" ? "var(--white)" : "var(--dark-grey)"};
 
   &:hover {
     background-color: var(--light-peach);
@@ -38,6 +46,6 @@ const MainButton = styled.button`
   }
 
   @media screen and (min-width: 1111px) {
-    margin: 0;
+    margin: ${(props) => props.margin};
   }
 `;

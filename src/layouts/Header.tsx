@@ -136,7 +136,7 @@ const HeaderComponent = styled.header`
     margin: auto;
   }
 
-  @media screen and (min-width: 1411px) {
+  @media screen and (min-width: 1111px) {
     padding: 64px 0px;
   }
 `;

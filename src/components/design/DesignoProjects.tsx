@@ -10,7 +10,7 @@ function DesignoProjects({ projects }: DesignoProjectsProps) {
   return (
     <ProjectsList>
       {projects.map((project) => {
-        return <ProjectCard key={project.id} project={project} />;
+        return <ProjectCard key={project.title} project={project} />;
       })}
     </ProjectsList>
   );
